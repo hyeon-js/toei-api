@@ -34,7 +34,7 @@ def get_running_info(lineName):
                 'no': datum['odpt:trainNumber'],
                 'type': datum['odpt:trainType'].split('.')[-1],
                 'owner': datum['odpt:trainOwner'].split('.')[-1].split(':')[-1],
-                'stn': stn,
+                'stn': stn.split('.')[-1],
                 'status': status
             })
     
