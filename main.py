@@ -26,7 +26,7 @@ def get_running_info(lineName):
         if datum['odpt:railway'] == line: 
             data.append({
                 'no': datum['odpt:trainNumber'],
-                'type': datum['odpt:trainType'],
+                'type': datum['odpt:trainType'].split('.')[-1],
                 'owner': datum['odpt:trainOwner']
             })
     
