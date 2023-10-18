@@ -23,11 +23,19 @@ def get_running_info(lineName):
     data = []
     line = 'odpt.Railway:Toei.' + lineName
     for datum in response.json():
-        if datum['odpt:railway'] == line: 
+        if datum['odpt:railway'] == line :
+            stn = datum['odpt:toStation']
+            status = 'Approaching'
+            if stn == None :
+                stn = datum['odpt:fromStation']
+                status = 'Arrived'
+            
             data.append({
                 'no': datum['odpt:trainNumber'],
                 'type': datum['odpt:trainType'].split('.')[-1],
-                'owner': datum['odpt:trainOwner']
+                'owner': datum['odpt:trainOwner'].split('.')[-1].split(':')[-1],
+                'stn': stn,
+                'status': status
             })
     
     return data
