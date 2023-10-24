@@ -40,10 +40,17 @@ def get_running_info(lineName):
                 'stn': stn.split('.')[-1],
                 'status': status
             })
-    result = []
-    for i in range(0, len(stns)):
-        datum = {}
-        datum['stn'] = stns[i]
-        result.append(datum)
+    # return data
+
+    # result = []
+    # for i in range(0, len(stns)):
+    #     datum = {}
+    #     datum['stn'] = stns[i]
+    #     for train in data:
+    #         if train['stn'] == stns[i]['en']:
+    #             if not 'up' in datum : datum['up'] = []
+    #             datum['up'].append(train)
+        
+    #     result.append(datum)
     
     return result
