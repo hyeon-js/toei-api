@@ -38,9 +38,10 @@ def get_running_info(lineName):
                 'type': datum['odpt:trainType'].split('.')[-1],
                 'owner': owner,
                 'stn': stn.split('.')[-1],
-                'status': status
+                'status': status,
+                'dir': datum['odpt:railDirection']
             })
-    # return data
+    return data
 
     # result = []
     # for i in range(0, len(stns)):
