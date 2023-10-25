@@ -49,17 +49,18 @@ def get_running_info(lineName):
                 'status': status,
                 'isUp': isUp[lineName] == dir
             })
-    return data
 
-    # result = []
-    # for i in range(0, len(stns)):
-    #     datum = {}
-    #     datum['stn'] = stns[i]
-    #     for train in data:
-    #         if train['stn'] == stns[i]['en']:
-    #             if not 'up' in datum : datum['up'] = []
-    #             datum['up'].append(train)
-        
-    #     result.append(datum)
+    result = []
+    for i in range(0, len(stns)):
+        datum = {}
+        datum['stn'] = stns[i]
+        datum['up'] = []
+        datum['down'] = []
+        for train in data:
+            if train['stn'] == stns[i]['en']:
+                updn = 'down'
+                if train['isUp'] : updn = 'up'
+                datum[updn].append(train)
+        result.append(datum)
     
     return result
