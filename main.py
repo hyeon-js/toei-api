@@ -39,7 +39,7 @@ def get_running_info(lineName):
                 'owner': owner,
                 'stn': stn.split('.')[-1],
                 'status': status,
-                'dir': datum['odpt:railDirection'].split('.')[-1]
+                'dir': datum['odpt:railDirection'].split('.')[-1].split(':')[-1]
             })
     return data
 
