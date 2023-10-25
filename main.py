@@ -32,6 +32,14 @@ def get_running_info(lineName):
             owner = datum.get('odpt:trainOwner')
             if owner == None : owner = 'Toei'
             else : owner = owner.split('.')[-1].split(':')[-1]
+
+            dir = datum['odpt:railDirection'].split('.')[-1].split(':')[-1]
+            isUp = {
+                'Asakusa': 'Southbound',
+                'Mita': 'Southbound',
+                'Shinjuku': 'Westbound',
+                'Oedo': 'InnerLoop'
+            }
             
             data.append({
                 'no': datum['odpt:trainNumber'],
@@ -39,7 +47,7 @@ def get_running_info(lineName):
                 'owner': owner,
                 'stn': stn.split('.')[-1],
                 'status': status,
-                'dir': datum['odpt:railDirection'].split('.')[-1].split(':')[-1]
+                'isUp': isUp[lineName] == dir
             })
     return data
 
