@@ -29,7 +29,13 @@ def get_running_info(lineName):
             if train['stn'] == stns[i]['en']:
                 updn = 'down'
                 if train['isUp'] : updn = 'up'
-                datum[updn].append(train)
+                datum[updn].append({
+                    'no': train['no'],
+                    'type': train['type'],
+                    'owner': train['owner'],
+                    'stn': train['stn'],
+                    'status': train['status']
+                })
         result.append(datum)
     
     return result
